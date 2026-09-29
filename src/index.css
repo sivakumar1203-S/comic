@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --comic-font-display: 'Bangers', cursive, system-ui;
+    --comic-font-body: 'Comic Neue', cursive, sans-serif;
+    --comic-font-marker: 'Permanent Marker', cursive;
+  }
+}
+
+.font-comic-title {
+  font-family: 'Bangers', cursive, system-ui;
+  letter-spacing: 0.05em;
+}
+
+.font-comic-text {
+  font-family: 'Comic Neue', cursive, sans-serif;
+}
+
+.font-comic-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+
+/* Halftone Ben-Day dots effect */
+.bg-halftone {
+  background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+}
+
+.bg-halftone-yellow {
+  background-image: radial-gradient(#fde047 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+}
+
+.bg-halftone-dark {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1.5px, transparent 1.5px);
+  background-size: 8px 8px;
+}
+
+/* Comic brutalist shadow effects */
+.comic-shadow-sm {
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.comic-shadow {
+  box-shadow: 5px 5px 0px #000000;
+}
+
+.comic-shadow-lg {
+  box-shadow: 8px 8px 0px #000000;
+}
+
+.comic-shadow-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #000000;
+}
+
+.comic-shadow-hover:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+/* Speech Bubble pointers */
+.speech-bubble-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 24px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #ffffff transparent;
+  display: block;
+  width: 0;
+}
+
+.speech-bubble-bottom::before {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 22px;
+  border-width: 12px 12px 0;
+  border-style: solid;
+  border-color: #000000 transparent;
+  display: block;
+  width: 0;
+}
+
+/* Print optimizations */
+@media print {
+  body {
+    background: white !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-page {
+    page-break-after: always;
+  }
+}
+
